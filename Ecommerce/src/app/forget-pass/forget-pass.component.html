@@ -1,0 +1,15 @@
+<div class="container py-5">
+  <form class="py-5" [formGroup]="forgetFrom" (ngSubmit)="forgetSubmit(forgetFrom)">
+    <label for="email my-2">Enter your Email</label>
+    <input id="email" class="form-control my-3" formControlName="email">
+    <button class="btn btn-success d-block ms-auto" [ngClass]="{'disabled':forgetFrom.get('email')?.getError('email') || forgetFrom.get('email')?.getError('required')}">Send</button>
+    <p class="text-center response fw-medium">{{forgetmessage?.message}}</p>
+    <p class="text-center response fw-medium text-danger" *ngIf="errorForgetEmail">please enter valid email</p>
+  </form>
+  <form [formGroup]="resetFrom" (ngSubmit)="resetSubmit(resetFrom)" *ngIf="flag">
+    <label for="resetcode my-3">Enter the reset code</label>
+    <input id="resetcode" class="form-control my-3" formControlName="resetCode">
+    <button class="btn btn-success d-block ms-auto" [ngClass]="{'disabled':resetFrom.get('resetCode')?.getError('required') || resetFrom.get('resetCode')?.errors}">Send</button>
+    <p class="text-center response fw-medium text-danger" *ngIf="resetErrorMessage">Please Enter valid reset number</p>
+  </form>
+</div>

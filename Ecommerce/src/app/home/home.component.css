@@ -1,0 +1,58 @@
+.item img{
+  height: 50% !important;
+}
+.starDesign{
+  color: gold;
+}
+.pointer{
+  cursor: pointer;
+}
+.col-lg-2{
+  transition: box-shadow .1s ease-in-out,border .2s ease-in-out;
+  border: 1px solid transparent;
+  overflow: hidden;
+  position: relative;
+}
+.col-lg-2:hover{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border: 1px solid rgba(0, 128, 0, 0.641);
+}
+.item:hover .btn-up{
+  bottom: 10%;
+  opacity: 1;
+}
+.btn-up{
+  position: absolute;
+  width: 100%;
+  bottom: -30%;
+  transition: bottom .5s ease-in-out,opacity .2s ease-in-out;
+  opacity: 0;
+}
+.heart{
+  top: 0;
+  left: 2;
+  font-size: 2rem;
+  z-index: 10000;
+  cursor: pointer;
+  color: rgb(252, 166, 166);
+  transition: color .3s ease-in-out;
+}
+.heart:hover{
+  color: red;
+}
+/* ------- */
+.popUpIn{
+  display: none;
+  background-color: rgb(77, 199, 29);
+}
+.popUp{
+  z-index: 9999999;
+}
+.popUpIn h3{
+  color: rgb(255, 255, 255);
+}
+.icon{
+  background-color: green;
+  padding: 1.6rem;
+  border: 1px solid white;
+}

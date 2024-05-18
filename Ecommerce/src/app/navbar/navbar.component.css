@@ -1,0 +1,26 @@
+.navbar-nav i{
+  display: block;
+}
+.active{
+  background-color: rgba(0, 0, 0, 0.408);
+  color: green !important;
+  border-radius: 30px;
+  transition: all .2s ease-in-out;
+}
+.w-35{
+  width: 35%;
+}
+.icon{
+  color: white;
+  font-size: .9rem;
+  background-color: rgb(22, 226, 22);
+  padding: 0 .3rem;
+  cursor: pointer;
+}
+.icon1{
+  border-radius: 30px;
+  transition: all .3s ease-in-out;
+}
+.icon1:hover{
+  background-color: rgba(0, 128, 0, 0.586);
+}

@@ -1,0 +1,40 @@
+<div class="container py-5 my-5">
+    <div class="d-flex flex-column">
+        <div class="d-flex justify-content-between py-2">
+            <h3>My Wishlist <span>({{wishCount}} Items)</span></h3>
+            <p class="m-0">Wishlist Privacy</p>
+        </div>
+        <div class="py-3 d-flex justify-content-start">
+            <p class="m-0 iconf rounded-1 px-2"><i class="fa-brands fa-facebook fs-5"></i> Share</p>
+            <P class="m-0 icont ms-2 rounded-1 px-2"><i class="fa-brands fa-twitter fs-5"></i> Tweet</P>
+        </div>
+    </div>
+    <hr>
+    <div class="row" *ngFor="let item of wishList">
+      <div class="col-lg-2">
+        <img [src]="item.imageCover" class="w-100">
+      </div>
+      <div class="col-lg-10 d-flex flex-column">
+        <div class="d-flex justify-content-between">
+          <p class="m-0 text-success fw-bold">In Stock</p>
+          <p class="m-0 fs-5 text-muted trash" (click)="removeWishList(item.id)"><i class="fa-solid fa-trash"></i></p>
+        </div>
+        <h3 class="fw-bold">{{item.slug}}</h3>
+        <div class="d-flex justify-content-between mt-2">
+          <div class="d-flex flex-column justify-content-between">
+            <div class="d-flex justify-content-start">
+              <p class="m-0 bg-success rounded-2 text-white fs-6 px-1">{{item.ratingsAverage}}<i class="fa-solid fa-star ms-1"></i></p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center" *ngIf="item.priceAfterDiscount">
+              <P class="m-0 fw-bold fs-5">{{item.priceAfterDiscount|currency:'EGP'}}</P>
+              <P class="m-0 text-muted fs-6 line-throw ms-1">{{item.price|currency:'EGP'}}</P>
+            </div>
+            <P class="m-0 fs-5 fw-bold" *ngIf="!item.priceAfterDiscount">{{item.price|currency:'EGP'}}</P>
+          </div>
+          <div>
+            <button class="btn btn-warning text-white py-3 px-5 fs-5" (click)="addToCart(item.id)">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

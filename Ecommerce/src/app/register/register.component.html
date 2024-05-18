@@ -1,0 +1,46 @@
+<div class="main container py-3">
+  <h4 class="text-center text-success fw-bold fs-1">Register Form</h4>
+  <form [formGroup]="registerForm" class="p-5 my-3" (ngSubmit)="handleRegister(registerForm)">
+    <div class="alert alert-danger" *ngIf="errorText.length>0">
+      <p class="m-0">{{errorText}}</p>
+    </div>
+    <label for="name">Name:</label>
+    <input id="name" class="form-control my-2" type="text" formControlName="name">
+    <div class="alert alert-danger" *ngIf="registerForm.get('name')?.touched && registerForm.get('name')?.errors">
+      <p *ngIf="registerForm.get('name')?.getError('required')" class="m-0">Name is Required</p>
+      <p *ngIf="registerForm.get('name')?.getError('minlength')" class="m-0">min length is 3 </p>
+    </div>
+
+    <label for="email">Email:</label>
+    <input id="email" class="form-control my-2" type="text" formControlName="email">
+    <div class="alert alert-danger" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors">
+      <p *ngIf="registerForm.get('email')?.getError('required')" class="m-0">email is Required</p>
+      <p *ngIf="registerForm.get('email')?.getError('email')" class="m-0">enter valid email</p>
+    </div>
+    <label for="pass">password:</label>
+    <input id="pass" class="form-control my-2" type="password" formControlName="password">
+    <div class="alert alert-danger" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors">
+      <p *ngIf="registerForm.get('password')?.getError('required')" class="m-0">password is Required</p>
+      <p *ngIf="registerForm.get('password')?.getError('pattern')" class="m-0">enter valid password</p>
+    </div>
+
+    <label for="repass">Repassword:</label>
+    <input id="repass" class="form-control my-2" type="password" formControlName="rePassword">
+    <div class="alert alert-danger" *ngIf="registerForm.get('rePassword')?.touched && registerForm.get('rePassword')?.errors">
+      <p *ngIf="registerForm.get('rePassword')?.getError('required')" class="m-0">rePassword is Required</p>
+      <p *ngIf="registerForm.get('rePassword')?.getError('pattern')" class="m-0">enter valid rePassword</p>
+    </div>
+
+    <label for="phone">Phone Number:</label>
+    <input id="phone" class="form-control my-2" type="tel" formControlName="phone">
+    <div class="alert alert-danger" *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.errors">
+      <p *ngIf="registerForm.get('phone')?.getError('required')" class="m-0">phone is Required</p>
+      <p *ngIf="registerForm.get('phone')?.getError('pattern')" class="m-0">enter valid phone</p>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button *ngIf="!spinner" class="btn btn-success px-4 fw-semibold" [disabled]="registerForm.invalid">Send</button>
+      <button *ngIf="spinner" class="btn btn-success px-4 fw-semibold"><i class="fa-solid fa-spinner fa-spin-pulse"></i></button>
+   </div>
+  </form>
+</div>

@@ -1,0 +1,37 @@
+.iconf
+{
+  padding: .3rem;
+  background-color: #1877f2;
+  color: white;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+.iconf svg{
+  color: white;
+}
+.iconf:hover{
+  background-color: #0054c2;
+}
+.icont
+{
+  padding: .3rem;
+  background-color:#1d9bf0 ;
+  color: white;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+.icont:hover{
+  background-color:#0075c3 ;
+}
+.line-throw{
+  text-decoration: line-through;
+}
+.trash{
+  cursor: pointer;
+}
+.trash svg{
+  transition: all .3s ease-in-out;
+}
+.trash svg:hover{
+  color: black;
+}

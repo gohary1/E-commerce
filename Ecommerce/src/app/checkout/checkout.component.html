@@ -1,0 +1,14 @@
+<div class="container py-5">
+  <form [formGroup]="shippingAddress" (ngSubmit)="checkout(cartId,shippingAddress)">
+    <label for="details">details</label>
+    <input id="details" formControlName="details" class="form-control my-2">
+
+    <label for="phone">phone</label>
+    <input id="phone" formControlName="phone" class="form-control my-2">
+
+    <label for="city">city</label>
+    <input id="city" formControlName="city" class="form-control my-2">
+
+    <button class="btn btn-success d-block mx-auto mt-4 fs-4 fw-bold" type="submit">Place Order</button>
+  </form>
+</div>

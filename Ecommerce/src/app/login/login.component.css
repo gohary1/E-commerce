@@ -1,0 +1,7 @@
+.pointer{
+  cursor: pointer;
+  color: rgb(0, 0, 255);
+}
+.pointer:hover{
+  color: green;
+}

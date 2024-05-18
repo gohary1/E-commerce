@@ -1,0 +1,26 @@
+<div class="row g-0 py-3">
+  <div class="col-lg-8">
+    <div class="item">
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide><img src="../../assets/grocery-banner.png" height="400"></ng-template>
+        <ng-template carouselSlide><img src="../../assets/grocery-banner-2.jpeg" height="400"></ng-template>
+      </owl-carousel-o>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="d-flex flex-column">
+      <img height="200" src="../../assets/slider-image-1.jpeg">
+      <img height="200" src="../../assets/slider-image-2.jpeg">
+    </div>
+  </div>
+</div>
+<div class="row py-4">
+  <owl-carousel-o [options]="customOptions2">
+    <ng-container *ngFor="let img of productsCat">
+      <ng-template carouselSlide>
+        <img [src]="img.image" [alt]="img.name" height="200">
+        <h3 class="h6">{{img.name}}</h3>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</div>

@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container">
+      <div>
+        <i class="fa-solid fa-cart-shopping fs-4 fa-flip me-1 text-success"></i>
+    <a class="navbar-brand fw-bold fs-3" href="#">FreshCart</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      </div>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a *ngIf="isLogin" class="nav-link fw-semibold" routerLink="home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLogin" class="nav-link fw-semibold" routerLink="category" routerLinkActive="active">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLogin" class="nav-link fw-semibold" routerLink="brand" routerLinkActive="active">Brand</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mt-2 mt-lg-0 w-35 d-flex justify-content-between align-items-center">
+        <li class="nav-item">
+          <i class="fa-brands fa-facebook"></i>
+        </li>
+        <li class="nav-item">
+          <i class="fa-brands fa-instagram"></i>
+        </li>
+        <li class="nav-item">
+          <i class="fa-brands fa-tiktok"></i>
+        </li>
+        <li class="nav-item">
+          <i class="fa-brands fa-twitch"></i>
+        </li>
+        <li class="nav-item">
+          <i class="fa-brands fa-linkedin"></i>
+        </li>
+        <li class="nav-item">
+          <i class="fa-brands fa-youtube"></i>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLogin" class="nav-item text-muted" (click)="logOut()" routerLink="SignOut">SignOut</a>
+        </li>
+        <li class="nav-item position-relative">
+          <a *ngIf="isLogin" class="nav-link text-success fs-5 icon1" routerLink="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+          <span *ngIf="isLogin" class="position-absolute top-0 end-0 icon rounded-4">{{cartNumber}}</span>
+        </li>
+        <li class="nav-item position-relative">
+          <a *ngIf="isLogin" class="nav-link text-danger fs-5 icon1" routerLink="wishlist"><i class="fa-solid fa-heart"></i></a>
+          <span *ngIf="isLogin" class="position-absolute top-0 end-0 icon bg-danger rounded-4">{{wishNumber}}</span>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="!isLogin" class="nav-item text-muted" routerLink="register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="!isLogin" class="nav-item text-muted" routerLink="login">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

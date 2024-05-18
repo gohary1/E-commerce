@@ -1,0 +1,34 @@
+<div class="px-3">
+   <app-brands></app-brands>
+</div>
+<div class="container py-5">
+
+  <!-- <app-sliders></app-sliders> -->
+  <div class="row g-2">
+    <div class="col-lg-2 p-3 rounded-3 position-relative" *ngFor="let item of products">
+      <a (click)="addWishList(item?.id)"><span class="position-absolute heart"><i class="fa-solid fa-heart"></i></span></a>
+      <div class="item pointer position-relative">
+        <a routerLink="/productdetails/{{item._id}}">
+          <img [src]="item?.imageCover" class="w-100">
+        <div class="d-flex flex-column justify-content-between">
+          <div class="d-flex flex-column">
+            <p class="m-0 text-success fw-bold ">{{item?.category.name}}</p>
+           <h3 class="h6">{{item?.title.split(' ').slice(0,4).join(' ')}}</h3>
+          </div>
+          <div class="d-flex justify-content-between mt-3">
+            <p class="m-0 text-muted">{{item?.price|currency:'EGP'}}</p>
+            <P class="m-0">{{item?.ratingsAverage}} <i class="fa-solid fa-star starDesign fw-bold"></i></P>
+          </div>
+        </div>
+        </a>
+        <div class="d-flex justify-content-center mt-3 btn-up "><button class="btn btn-success w-75" (click)="addToCart(item._id)">+ Add</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="popUp fixed-top d-flex justify-content-center">
+    <div class="popUpIn w-50 py-4 rounded-bottom justify-content-between flex-column align-items-center">
+      <P class="icon rounded-circle"><i class="fa-solid fa-check text-white fs-1"></i></P>
+      <h3 class="fs-4 text-center">Product added successfully</h3>
+    </div>
+  </div>
+</div>

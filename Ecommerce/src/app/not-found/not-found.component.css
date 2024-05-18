@@ -1,0 +1,6 @@
+.main{
+  height: 100vh;
+  background-image: url(../../assets/error.jpg);
+  background-size: cover;
+  background-position: center;
+}

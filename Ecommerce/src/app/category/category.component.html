@@ -1,0 +1,10 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-3 p-3" *ngFor="let item of allCat">
+      <div class="item position-relative overflow-hidden">
+        <img class="w-100 rounded-3" [src]="item.image" height="300">
+      <div class="position-absolute layer rounded-3 d-flex  justify-content-center align-items-center"><p class="m-0 fs-4 fw-semibold">{{item.name}}</p></div>
+      </div>
+    </div>
+  </div>
+</div>

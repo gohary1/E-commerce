@@ -1,0 +1,75 @@
+<div class="container p-5">
+  <h3 class="text-center fw-bold">Your Cart ({{cartItemsNum}} Items)</h3>
+  <div class="row py-4 border-bottom">
+    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+      <p class="m-0 fw-bold">Items</p>
+    </div>
+    <div class="col-lg-2 d-flex align-items-center justify-content-center">
+      <p class="m-0 fw-bold">Price</p>
+    </div>
+    <div class="col-lg-2 d-flex align-items-center justify-content-center">
+      <p class="m-0 fw-bold">Quantity</p>
+    </div>
+    <div class="col-lg-2 d-flex align-items-center justify-content-center">
+      <p class="m-0 fw-bold">Total</p>
+    </div>
+  </div>
+  <div class="row py-4 border-bottom" *ngFor="let item of cartItems" >
+    <div class="col-lg-6 d-flex justify-content-center align-items-center" >
+      <div class="col-lg-4">
+        <img [src]="item.product.imageCover" class="w-100">
+      </div>
+      <div class="col-lg-8">
+        <p class="m-0 fw-bold fs-2">{{item.product.title}}</p>
+        <p class="fs-5 text-success">Brand:{{item.product.brand.name}}</p>
+        <p class="fw-semibold">Category:{{item.product.category.name}}</p>
+      </div>
+    </div>
+    <div class="col-lg-2 d-flex align-items-center justify-content-center">
+      <p class="m-0 fw-normal fs-4 text-muted">{{item.price|currency:'EGP'}}</p>
+    </div>
+    <div class="col-lg-2 d-flex align-items-center justify-content-center">
+      <div class="d-flex align-items-center justify-content-around w-100">
+        <p class="m-0 fw-bold fs-4 count count1 btn btn-danger pointer" *ngIf="flag===false" (click)="updateItem(item.product._id,item.count-1)" [ngClass]="{'disabled':item.count==0}">
+          <i class="fa-solid fa-minus" ></i>
+        </p>
+        <p class="m-0 fw-bold fs-4 count count1 btn btn-danger pointer" *ngIf="flag===true">
+          <i class="fa-solid fa-spinner fa-spin-pulse" ></i>
+        </p>
+      <p class="m-0 fw-bold fs-3">{{item.count}}</p>
+      <p class="m-0 fw-bold fs-4 count count2 bg-success btn btn-success pointer" *ngIf="flag===false" (click)="updateItem(item.product._id,item.count+1)"><i class="fa-solid fa-plus"></i></p>
+      <p class="m-0 fw-bold fs-4 count count2 bg-success btn btn-success pointer"  *ngIf="flag===true"><i class="fa-solid fa-spinner fa-spin-pulse" ></i></p>
+      </div>
+
+    </div>
+    <div class="col-lg-2 d-flex align-items-center justify-content-between">
+      <p class="m-0 fw-bold fs-4">{{item.price*item.count|currency:'EGP'}}</p>
+      <p class="m-0 fs-3 ms-5 pointer trash" (click)="deleteItem(item.product._id)"><i class="fa-solid fa-trash"></i></p>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end py-3">
+    <div class="w-50 py-3">
+      <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+        <p class="fw-bold fs-5">Subtotal:</p>
+        <p>{{totalPrice|currency:'EGP'}}</p>
+      </div>
+      <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+        <p class="fw-bold fs-5">Sales Tax:</p>
+        <p>EGB 00.00</p>
+      </div>
+      <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+        <p class="fw-bold fs-5">Grand Total:</p>
+        <p>{{totalPrice|currency:'EGP'}}</p>
+      </div>
+      <div class="d-flex justify-content-end py-3">
+        <div class="w-50 py-3">
+          <div class="w-100 d-flex justify-content-between border-bottom align-items-center">
+            <p class="text-muted">Congarts you're eligible for <span class="fw-bold text-black">Free Shipping</span></p>
+            <i class="fa-solid fa-truck mb-2"></i>
+          </div>
+          <button class="w-100 btn btn-success p-3" routerLink="/checkout">Check Out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

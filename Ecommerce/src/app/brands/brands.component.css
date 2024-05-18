@@ -1,0 +1,13 @@
+.cursor{
+  cursor: pointer;
+}
+.bg-main{
+  background-image: linear-gradient(to left, #ff8f00, #ebae00, #c9cb00, #94e700, #00ff43);
+}
+.item img{
+  transition: all .3s ease-in-out;
+}
+.item img:hover
+{
+  transform: scale(1.2);
+}

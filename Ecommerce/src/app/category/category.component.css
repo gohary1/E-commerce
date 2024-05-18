@@ -1,0 +1,22 @@
+.layer{
+  top: 130%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.523);
+  transition: all .5s ease-in-out;
+  color: rgb(0, 249, 0);
+  cursor: pointer;
+}
+.item img{
+  transition: all .7s ease-in-out;
+}
+.item:hover .layer{
+  top: 0;
+}
+.item:hover.item img{
+  transform: scale(1.4);
+}
+.item{
+  cursor: pointer;
+}

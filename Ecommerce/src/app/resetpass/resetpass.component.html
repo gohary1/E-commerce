@@ -1,0 +1,10 @@
+<div class="container py-5">
+  <form class="py-5 " [formGroup]="resetForm" (ngSubmit)="resetData(resetForm)">
+    <P class="text-center fw-bold fs-4 text-danger">{{errorMessage}}</P>
+    <label for="email" class="my-2">Enter your email</label>
+    <input class="form-control my-3" formControlName="email" id="email" type="email">
+    <label for="New password" class="my-2 text-danger fw-bold">Enter your New password</label>
+    <input class="form-control my-3" formControlName="newPassword" id="New password" type="password">
+    <button class="btn btn-danger d-block mx-auto" [ngClass]="{'disabled':resetForm.get('email')?.getError('email') || resetForm.get('email')?.getError('required') || resetForm.get('newPassword')?.getError('required')}">Reset Password</button>
+  </form>
+</div>

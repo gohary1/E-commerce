@@ -1,0 +1,14 @@
+.count{
+  padding: .3rem;
+  border: 0;
+}
+.pointer{
+  cursor: pointer;
+}
+.trash{
+  color: rgba(248, 90, 90, 0.872);
+  transition: all .4s ease-in-out;
+}
+.trash:hover{
+  color: red;
+}
